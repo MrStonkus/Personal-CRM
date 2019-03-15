@@ -6,9 +6,11 @@ import store from "./store"; // load vuex component for using global variables i
 import BootstrapVue from "bootstrap-vue"; // load buitifull UI tools
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import vueKanban from "vue-kanban";
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
+Vue.use(vueKanban);
 
 //Create, render and mount main App.vue file
 new Vue({
