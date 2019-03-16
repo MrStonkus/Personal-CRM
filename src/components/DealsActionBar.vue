@@ -12,7 +12,7 @@ export default {
 <style scoped>
 .dealsActionBar {
   background: #f7f7f7;
-  padding: 10px 16px 0 14px;
+  padding: 10px 16px 10px 14px;
   display: flex;
   justify-content: space-between;
 }
