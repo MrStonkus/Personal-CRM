@@ -9,10 +9,18 @@
         :key="stage"
       >
         <div>
+          <!-- Stage header title -->
           <h2>{{ stage }}</h2>
         </div>
-        <div class="stage-value">{{ getDeals(stage) }} deals</div>
+        <!-- Show number of deals in Kanban stage header -->
+        <div v-if="getDeals(stage) === 1" class="stage-value">
+          {{ getDeals(stage) }} deal
+        </div>
+        <div v-else-if="getDeals(stage) > 1" class="stage-value">
+          {{ getDeals(stage) }} deals
+        </div>
       </div>
+      <!-- List deals items -->
       <div v-for="deal in deals" :slot="deal.id" :key="deal.id">
         <div>
           <strong>id:</strong>
