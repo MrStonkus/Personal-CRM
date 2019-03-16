@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <!-- Load NavBar -->
-      <NavBar />
-    </div>
+    <!-- Load Top NavBar -->
+    <NavBar />
     <div id="mainView">
       <!-- Load pages from NavBar views directory-->
       <router-view />
