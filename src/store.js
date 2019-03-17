@@ -17,51 +17,58 @@ export default new Vuex.Store({
     ],
     deals: [
       {
-        id: "fhgfbgf",
+        id: "sdfsfsf",
         status: "Įvesta",
-        title: "Antras",
-        activityDate: "2019-03-17T16:00:00.957Z",
+        title: "Vėluojantis",
+        activityDate: "2016-03-17T16:00:00.957Z",
         isActivityDateAllDay: false
       },
       {
-        id: "fhgfbgf2",
+        id: "siandien",
         status: "Įvesta",
-        title: "Pirmas",
-        activityDate: "2019-03-17T08:58:09.957Z",
+        title: "Vėluojantis2",
+        activityDate: "2010-03-17T22:58:09.957Z",
         isActivityDateAllDay: false
       },
       {
-        id: "sdgdfg",
-        status: "Bendraujama",
-        title: "Buy coffee machine",
-        activityDate: "2016-03-17T09:58:09.957Z",
+        id: "beActivity",
+        status: "Įvesta",
+        title: "Nenustatytas",
+        activityDate: "",
+        isActivityDateAllDay: false
+      },
+      {
+        id: "sdgfhshhdhf",
+        status: "Įvesta",
+        title: "Būsimas2",
+        activityDate: "2020-01-20T09:30:51.957Z",
+        isActivityDateAllDay: false
+      },
+      {
+        id: "siandien2",
+        status: "Įvesta",
+        title: "Būsimas",
+        activityDate: "2019-08-17T19:30:51.957Z",
+        isActivityDateAllDay: false
+      },
+      {
+        id: "siandisdsd",
+        status: "Įvesta",
+        title: "Būsimas šiandien Visą dieną",
+        activityDate: "2019-03-17T21:30:51.957Z",
         isActivityDateAllDay: true
       },
-
       {
-        id: "energizer",
-        status: "Reikalingas pasiūlymas",
-        title: "Find better AirBnB options",
-        activityDate: "2013-01-20T09:30:51.957Z",
+        id: "siandien5",
+        status: "Įvesta",
+        title: "Vėluojantis šiandien Visą dieną",
+        activityDate: "2019-03-17T10:30:51.957Z",
         isActivityDateAllDay: true
-      },
-      {
-        id: "sdgfdgfdfg",
-        status: "Pasiūlymas pateiktas",
-        title: "Find",
-        activityDate: "2016-03-17T09:58:09.957Z",
-        isActivityDateAllDay: false
-      },
-      {
-        id: "dghdgdgdfgdgd",
-        status: "Užsakymas vykdomas",
-        title: "Find better AirBnB options sdfsdfds sdfsdf",
-        activityDate: "2015-04-20T09:30:51.01Z",
-        isActivityDateAllDay: false
       }
     ],
     //Default global settings
-    isSortDealsAuto: true
+    isSortDealsAuto: true,
+    counter: 10
   },
   //Mutations for updating this.state
   mutations: {
@@ -70,11 +77,17 @@ export default new Vuex.Store({
         id: uuid.v4(),
         status: state.stages[0],
         title: "Naujas sandoris",
-        activityDate: new Date()
+        // @ts-ignore
+        activityDate: new Date(),
+        isActivityDateAllDay: false
       });
+      state.counter += 1;
     },
     updateisSortDealsAuto(state, val) {
       state.isSortDealsAuto = val;
+    },
+    updateDealsList(state, val) {
+      state.deals.find(d => d.id === val.id).status = val.status;
     }
   },
   actions: {}

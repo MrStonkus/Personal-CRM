@@ -6,7 +6,7 @@ import store from "./store"; // load vuex component for using global variables i
 import BootstrapVue from "bootstrap-vue"; // load buitifull UI tools
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import vueKanban from "vue-kanban";
+import vueKanban from "vue_kanban_sort";
 import UUID from "vue-uuid";
 
 Vue.config.productionTip = false;

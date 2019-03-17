@@ -1,6 +1,7 @@
 <template>
   <div id="kanban">
     <div>Sort auto: {{ isSortDealsAuto }}</div>
+
     <!-- Kanban start   -->
     <kanban-board :stages="stages" :blocks="deals" @update-block="updateDeal">
       <div
@@ -19,7 +20,7 @@
       </div>
 
       <!-- List deals items in current stage-->
-      <div v-for="deal in deals" :slot="deal.id" :key="deal.id">
+      <div v-for="deal in sortDeals(deals)" :slot="deal.id" :key="deal.id">
         <div>id: {{ deal.id }}</div>
         <div>
           <strong>{{ deal.title }}</strong>
@@ -28,6 +29,13 @@
       </div>
     </kanban-board>
     <!-- Kanban end -->
+    <div>List deals</div>
+    <div v-for="(deal, index) in sortDeals(deals)" :key="index">
+      <li>
+        {{ deal.title }} - {{ deal.id }} - {{ deal.activityDate }} -
+        {{ deal.status }}
+      </li>
+    </div>
   </div>
 </template>
 
@@ -45,6 +53,15 @@ export default {
   },
 
   methods: {
+    sortDeals: function(deals) {
+      var newDeals = deals.slice();
+      return newDeals.sort(function(a, b) {
+        return (
+          Number(new Date(a.activityDate)) - Number(new Date(b.activityDate))
+        );
+      });
+    },
+
     //Count deals number in current stage
     getDealsCountString: function(stage) {
       const deals = this.$store.state.deals;
@@ -60,14 +77,14 @@ export default {
     },
 
     updateDeal(id, status) {
-      this.deals.find(d => d.id === id).status = status;
-      console.log(this.deals);
+      const updatedDeal = { id: id, status: status };
+      this.$store.commit("updateDealsList", updatedDeal);
     },
 
     //Get date and time of current deal in local time format YYYY-MM-DD HH:MM
     getActivityDate: function(deal) {
       const date = new Date(deal.activityDate).toLocaleString();
-      return deal.isActivityDateAllDay ? date.slice(0, 10) : date.slice(0, 16);
+      return deal.isActivityDateAllDay ? date.slice(0, 10) : date.slice(0, 19);
     }
   }
 };
