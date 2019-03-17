@@ -17,72 +17,28 @@ export default new Vuex.Store({
     ],
     deals: [
       {
-        id: 0,
+        id: "fhgfbgf",
         status: "Įvesta",
         title: "Buy coffee machine"
       },
       {
-        id: 1,
-        status: "Įvesta",
+        id: "sdgdfg",
+        status: "Bendraujama",
         title: "Buy coffee machine"
       },
+
       {
-        id: 2,
-        status: "Įvesta",
-        title: "Buy coffee machine"
-      },
-      {
-        id: 3,
-        status: "Įvesta",
-        title: "Buy coffee machine"
-      },
-      {
-        id: 4,
-        status: "Įvesta",
+        id: "egrergegr",
+        status: "Reikalingas pasiūlymas",
         title: "Find better AirBnB options"
       },
       {
-        id: 5,
-        status: "Įvesta",
+        id: "sdgfdgfdfg",
+        status: "Pasiūlymas pateiktas",
         title: "Find"
       },
       {
-        id: 6,
-        status: "Įvesta",
-        title: "Find better AirBnB options sdfsdfds sdfsdf"
-      },
-      {
-        id: 7,
-        status: "Įvesta",
-        title: "Buy coffee machine"
-      },
-      {
-        id: 8,
-        status: "Įvesta",
-        title: "Buy coffee machine"
-      },
-      {
-        id: 9,
-        status: "Įvesta",
-        title: "Buy coffee machine"
-      },
-      {
-        id: 10,
-        status: "Įvesta",
-        title: "Buy coffee machine"
-      },
-      {
-        id: 11,
-        status: "Įvesta",
-        title: "Find better AirBnB options"
-      },
-      {
-        id: 12,
-        status: "Įvesta",
-        title: "Find"
-      },
-      {
-        id: 13,
+        id: "dghdgdgdfgdgd",
         status: "Užsakymas vykdomas",
         title: "Find better AirBnB options sdfsdfds sdfsdf"
       }
@@ -94,7 +50,7 @@ export default new Vuex.Store({
       state.deals.push({
         //TODO: Implement ID generator
         id: uuid.v1(),
-        status: "Bendraujama",
+        status: state.stages[0],
         title: "Naujas sandoris"
       });
     }

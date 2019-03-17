@@ -49,7 +49,7 @@ export default {
       return deals.filter(x => x.status === stage).length;
     },
     updateDeal(id, status) {
-      this.deals.find(d => d.id === Number(id)).status = status;
+      this.deals.find(d => d.id === id).status = status;
       console.log(this.deals);
     },
     addDeal() {
