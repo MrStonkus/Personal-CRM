@@ -63,7 +63,7 @@ export default new Vuex.Store({
     //Default global settings
     isSortDealsAuto: true
   },
-  //Mutations updating this state
+  //Mutations for updating this.state
   mutations: {
     ADD_DEAL(state) {
       state.deals.push({
@@ -72,6 +72,9 @@ export default new Vuex.Store({
         title: "Naujas sandoris",
         activityDate: new Date()
       });
+    },
+    updateisSortDealsAuto(state, val) {
+      state.isSortDealsAuto = val;
     }
   },
   actions: {}

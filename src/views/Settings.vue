@@ -22,7 +22,7 @@ export default {
     //GET and SET dynamical and global isSortDealsAuto checkbox status
     isSortDealsAuto: {
       set(val) {
-        this.$store.state.isSortDealsAuto = val;
+        this.$store.commit("updateisSortDealsAuto", val);
       },
       get() {
         return this.$store.state.isSortDealsAuto;
