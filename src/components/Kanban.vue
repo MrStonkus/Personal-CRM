@@ -8,19 +8,13 @@
         :slot="stage"
         :key="stage"
       >
+        <!-- Stage header title -->
         <div>
-          <!-- Stage header title -->
           <h2>{{ stage }}</h2>
         </div>
 
         <!-- Show number of deals in Kanban stage header -->
-        <div v-if="getDeals(stage) === 1" class="stage-value">
-          {{ getDeals(stage) }} deal
-        </div>
-
-        <div v-else-if="getDeals(stage) > 1" class="stage-value">
-          {{ getDeals(stage) }} deals
-        </div>
+        <div class="stage-value">{{ getDealsCountString(stage) }}</div>
       </div>
 
       <!-- List deals items in current stage-->
@@ -51,9 +45,17 @@ export default {
 
   methods: {
     //Count deals number in current stage
-    getDeals: function(stage) {
-      let deals = this.$store.state.deals;
-      return deals.filter(x => x.status === stage).length;
+    getDealsCountString: function(stage) {
+      const deals = this.$store.state.deals;
+      const count = deals.filter(x => x.status === stage).length;
+
+      let dealText = "";
+      if (count === 1) {
+        dealText = count + " deal";
+      } else if (count > 1) {
+        dealText = count + " deals";
+      }
+      return dealText;
     },
 
     updateDeal(id, status) {
