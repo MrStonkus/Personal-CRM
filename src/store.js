@@ -1,6 +1,7 @@
 //This Vuex store will be used for global access of data to any component
 import Vue from "vue";
 import Vuex from "vuex";
+import { uuid } from "vue-uuid";
 
 Vue.use(Vuex);
 
@@ -87,6 +88,16 @@ export default new Vuex.Store({
       }
     ]
   },
-  mutations: {},
+  //Mutations updating this state
+  mutations: {
+    ADD_DEAL(state) {
+      state.deals.push({
+        //TODO: Implement ID generator
+        id: uuid.v1(),
+        status: "Bendraujama",
+        title: "Naujas sandoris"
+      });
+    }
+  },
   actions: {}
 });

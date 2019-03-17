@@ -7,10 +7,12 @@ import BootstrapVue from "bootstrap-vue"; // load buitifull UI tools
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import vueKanban from "vue-kanban";
+import UUID from "vue-uuid";
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(vueKanban);
+Vue.use(UUID);
 
 //Create, render and mount main App.vue file
 new Vue({

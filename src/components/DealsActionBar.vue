@@ -1,12 +1,17 @@
 <template>
   <div class="dealsActionBar">
-    <b-button variant="success">Add deal</b-button>
+    <b-button @click="addDeal" variant="success">Add deal</b-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "dealsActionBar"
+  name: "dealsActionBar",
+  methods: {
+    addDeal() {
+      this.$store.commit("ADD_DEAL");
+    }
+  }
 };
 </script>
 <style scoped>
