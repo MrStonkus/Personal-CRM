@@ -2,6 +2,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Deals from "./views/Deals.vue";
+import Settings from "./views/Settings.vue";
 
 Vue.use(Router);
 
@@ -11,6 +12,11 @@ export default new Router({
       path: "/",
       name: "deals",
       component: Deals
+    },
+    {
+      path: "/settings",
+      name: "settings",
+      component: Settings
     },
     {
       path: "/about",

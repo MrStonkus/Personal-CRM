@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    //Set data for Kanban
+    //Default global data for Kanban
     stages: [
       "Įvesta",
       "Bendraujama",
@@ -59,7 +59,9 @@ export default new Vuex.Store({
         activityDate: "2015-04-20T09:30:51.01Z",
         isActivityDateAllDay: false
       }
-    ]
+    ],
+    //Default global settings
+    isSortDealsAuto: true
   },
   //Mutations updating this state
   mutations: {

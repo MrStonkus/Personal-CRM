@@ -1,5 +1,6 @@
 <template>
   <div id="kanban">
+    <div>Sort auto: {{ isSortDealsAuto }}</div>
     <!-- Kanban start   -->
     <kanban-board :stages="stages" :blocks="deals" @update-block="updateDeal">
       <div
@@ -40,7 +41,7 @@ export default {
   //Get data of deals from global Vuex store
   computed: {
     //Set this.$store.state.stages to stages and deals to deals
-    ...mapState(["stages", "deals"])
+    ...mapState(["stages", "deals", "isSortDealsAuto"])
   },
 
   methods: {
