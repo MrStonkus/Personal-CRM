@@ -12,21 +12,24 @@
           <!-- Stage header title -->
           <h2>{{ stage }}</h2>
         </div>
+
         <!-- Show number of deals in Kanban stage header -->
         <div v-if="getDeals(stage) === 1" class="stage-value">
           {{ getDeals(stage) }} deal
         </div>
+
         <div v-else-if="getDeals(stage) > 1" class="stage-value">
           {{ getDeals(stage) }} deals
         </div>
       </div>
-      <!-- List deals items -->
+
+      <!-- List deals items in current stage-->
       <div v-for="deal in deals" :slot="deal.id" :key="deal.id">
+        <div>id: {{ deal.id }}</div>
         <div>
-          <strong>id:</strong>
-          {{ deal.id }}
+          <strong>{{ deal.title }}</strong>
         </div>
-        <div>{{ deal.title }}</div>
+        <div>{{ getActivityDate(deal) }}</div>
       </div>
     </kanban-board>
     <!-- Kanban end -->
@@ -34,31 +37,34 @@
 </template>
 
 <script>
+//Get all vuex store states in one mapState array
 import { mapState } from "vuex";
 
 export default {
   name: "KanBan",
+
   //Get data of deals from global Vuex store
   computed: {
+    //Set this.$store.state.stages to stages and deals to deals
     ...mapState(["stages", "deals"])
   },
 
   methods: {
+    //Count deals number in current stage
     getDeals: function(stage) {
       let deals = this.$store.state.deals;
       return deals.filter(x => x.status === stage).length;
     },
+
     updateDeal(id, status) {
       this.deals.find(d => d.id === id).status = status;
       console.log(this.deals);
     },
-    addDeal() {
-      console.log("Add deal");
-      this.deals.push({
-        id: 14,
-        status: "Bendraujama",
-        title: "Naujas sandoris"
-      });
+
+    //Get date and time of current deal in local time format YYYY-MM-DD HH:MM
+    getActivityDate: function(deal) {
+      const date = new Date(deal.activityDate).toLocaleString();
+      return deal.isActivityDateAllDay ? date.slice(0, 10) : date.slice(0, 16);
     }
   }
 };

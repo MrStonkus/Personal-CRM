@@ -19,28 +19,45 @@ export default new Vuex.Store({
       {
         id: "fhgfbgf",
         status: "Įvesta",
-        title: "Buy coffee machine"
+        title: "Antras",
+        activityDate: "2019-03-17T16:00:00.957Z",
+        isActivityDateAllDay: false
+      },
+      {
+        id: "fhgfbgf2",
+        status: "Įvesta",
+        title: "Pirmas",
+        activityDate: "2019-03-17T08:58:09.957Z",
+        isActivityDateAllDay: false
       },
       {
         id: "sdgdfg",
         status: "Bendraujama",
-        title: "Buy coffee machine"
+        title: "Buy coffee machine",
+        activityDate: "2016-03-17T09:58:09.957Z",
+        isActivityDateAllDay: true
       },
 
       {
-        id: "egrergegr",
+        id: "energizer",
         status: "Reikalingas pasiūlymas",
-        title: "Find better AirBnB options"
+        title: "Find better AirBnB options",
+        activityDate: "2013-01-20T09:30:51.957Z",
+        isActivityDateAllDay: true
       },
       {
         id: "sdgfdgfdfg",
         status: "Pasiūlymas pateiktas",
-        title: "Find"
+        title: "Find",
+        activityDate: "2016-03-17T09:58:09.957Z",
+        isActivityDateAllDay: false
       },
       {
         id: "dghdgdgdfgdgd",
         status: "Užsakymas vykdomas",
-        title: "Find better AirBnB options sdfsdfds sdfsdf"
+        title: "Find better AirBnB options sdfsdfds sdfsdf",
+        activityDate: "2015-04-20T09:30:51.01Z",
+        isActivityDateAllDay: false
       }
     ]
   },
@@ -48,10 +65,10 @@ export default new Vuex.Store({
   mutations: {
     ADD_DEAL(state) {
       state.deals.push({
-        //TODO: Implement ID generator
-        id: uuid.v1(),
+        id: uuid.v4(),
         status: state.stages[0],
-        title: "Naujas sandoris"
+        title: "Naujas sandoris",
+        activityDate: new Date()
       });
     }
   },

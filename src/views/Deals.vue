@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- <b-button @click="addDeal" variant="success">Add deal</b-button> -->
     <!-- load Deals Action Bar component-->
     <DealsActionBar />
+
     <!-- Load Kanban component -->
     <Kanban />
   </div>
@@ -19,7 +19,5 @@ export default {
     DealsActionBar,
     Kanban
   }
-  // display: "Two Lists",
-  // order: 1,
 };
 </script>
