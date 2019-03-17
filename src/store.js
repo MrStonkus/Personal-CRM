@@ -83,9 +83,9 @@ export default new Vuex.Store({
       });
       state.counter += 1;
     },
-    updateisSortDealsAuto(state, val) {
-      state.isSortDealsAuto = val;
-    },
+    // updateisSortDealsAuto(state, val) {
+    //   state.isSortDealsAuto = val;
+    // },
     updateDealsList(state, val) {
       state.deals.find(d => d.id === val.id).status = val.status;
     }

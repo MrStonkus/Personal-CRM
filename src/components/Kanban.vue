@@ -1,7 +1,5 @@
 <template>
   <div id="kanban">
-    <div>Sort auto: {{ isSortDealsAuto }}</div>
-
     <!-- Kanban start   -->
     <kanban-board :stages="stages" :blocks="deals" @update-block="updateDeal">
       <div
@@ -23,6 +21,7 @@
       <div v-for="deal in sortDeals(deals)" :slot="deal.id" :key="deal.id">
         <div>id: {{ deal.id }}</div>
         <div>
+          <img src="../assets/user.png" />
           <strong>{{ deal.title }}</strong>
         </div>
         <div>{{ getActivityDate(deal) }}</div>
@@ -94,5 +93,9 @@ export default {
 @import "../assets/kanban.scss";
 #kanban {
   height: auto;
+}
+img {
+  height: 17px;
+  margin: -7px 8px 0px 0px;
 }
 </style>
