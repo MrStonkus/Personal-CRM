@@ -25,11 +25,14 @@
         >
           <!-- <div>id: {{ deal.id }}</div> -->
           <div>
-            <div>
+            <strong>{{ deal.company }}</strong>
+            <div v-show="deal.contact">
               <img src="../assets/user.png" />
-              <strong>{{ deal.title }}</strong>
+              {{ deal.contact }}
             </div>
             <div>{{ getActivityDate(deal) }}</div>
+            <div>{{ deal.product }}</div>
+            <div>{{ deal.action }}</div>
           </div>
         </router-link>
       </div>
@@ -38,7 +41,7 @@
     <div>List deals</div>
     <div v-for="(deal, index) in sortDeals(deals)" :key="index">
       <li>
-        {{ deal.title }} - {{ deal.id }} - {{ deal.activityDate }} -
+        {{ deal.company }} - {{ deal.id }} - {{ deal.activityDate }} -
         {{ deal.status }}
       </li>
     </div>
@@ -104,8 +107,8 @@ export default {
 }
 
 img {
-  height: 17px;
-  margin: -7px 8px 0px 0px;
+  height: 14px;
+  margin: -5px 0px 0px 0px;
 }
 
 .link-to-deal:link,

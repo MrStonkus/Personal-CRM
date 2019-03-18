@@ -19,51 +19,32 @@ export default new Vuex.Store({
       {
         id: "sdfsfsf",
         status: "Įvesta",
-        title: "Vėluojantis",
+        company: "UAB Kompanija",
+        contact: "Tomas Baltušis",
         activityDate: "2016-03-17T16:00:00.957Z",
-        isActivityDateAllDay: false
+        isActivityDateAllDay: false,
+        product: "Vyniotuvas",
+        action: "Laukiu kol griš iš atostogų"
       },
       {
-        id: "siandien",
+        id: "sdfasdsfgfsfsf",
         status: "Įvesta",
-        title: "Vėluojantis2",
-        activityDate: "2010-03-17T22:58:09.957Z",
-        isActivityDateAllDay: false
+        company: "UAB Flirtas",
+        contact: "Rokas",
+        activityDate: "2015-03-17T16:00:00.957Z",
+        isActivityDateAllDay: false,
+        product: "Stelažas",
+        action: "Neapsisprendžia"
       },
       {
-        id: "beActivity",
+        id: "kgyjfghrfg",
         status: "Įvesta",
-        title: "Nenustatytas",
-        activityDate: "",
-        isActivityDateAllDay: false
-      },
-      {
-        id: "sdgfhshhdhf",
-        status: "Įvesta",
-        title: "Būsimas2",
-        activityDate: "2020-01-20T09:30:51.957Z",
-        isActivityDateAllDay: false
-      },
-      {
-        id: "sianhgdien2",
-        status: "Įvesta",
-        title: "Būsimas",
-        activityDate: "2019-08-17T19:30:51.957Z",
-        isActivityDateAllDay: false
-      },
-      {
-        id: "siaxfndisdsd",
-        status: "Įvesta",
-        title: "Būsimas šiandien Visą dieną",
-        activityDate: "2019-03-18T21:30:51.957Z",
-        isActivityDateAllDay: true
-      },
-      {
-        id: "sianrtydien5",
-        status: "Įvesta",
-        title: "Vėluojantis šiandien Visą dieną",
-        activityDate: "2019-03-18T01:30:51.957Z",
-        isActivityDateAllDay: true
+        company: "UAB Softas",
+        contact: "Tadas Kernagis",
+        activityDate: "2019-03-17T16:00:00.957Z",
+        isActivityDateAllDay: false,
+        product: "Vyniotuvas",
+        action: "Paruošti KP"
       }
     ],
     //Default global settings
@@ -76,7 +57,8 @@ export default new Vuex.Store({
       state.deals.push({
         id: uuid.v4(),
         status: state.stages[0],
-        title: "Naujas sandoris",
+        company: "UAB Nauja",
+        contact: "vardenis pavardenis",
         // @ts-ignore
         activityDate: new Date(),
         isActivityDateAllDay: true
