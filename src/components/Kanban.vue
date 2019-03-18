@@ -19,12 +19,19 @@
 
       <!-- List deals items in current stage-->
       <div v-for="deal in sortDeals(deals)" :slot="deal.id" :key="deal.id">
-        <div>id: {{ deal.id }}</div>
-        <div>
-          <img src="../assets/user.png" />
-          <strong>{{ deal.title }}</strong>
-        </div>
-        <div>{{ getActivityDate(deal) }}</div>
+        <router-link
+          class="link-to-deal"
+          :to="{ name: 'deal-show', params: { id: deal.id } }"
+        >
+          <div>id: {{ deal.id }}</div>
+          <div>
+            <div>
+              <img src="../assets/user.png" />
+              <strong>{{ deal.title }}</strong>
+            </div>
+            <div>{{ getActivityDate(deal) }}</div>
+          </div>
+        </router-link>
       </div>
     </kanban-board>
     <!-- Kanban end -->
@@ -94,8 +101,15 @@ export default {
 #kanban {
   height: auto;
 }
+
 img {
   height: 17px;
   margin: -7px 8px 0px 0px;
+}
+
+.link-to-deal:link,
+.link-to-deal:visited {
+  color: black;
+  text-decoration: none;
 }
 </style>

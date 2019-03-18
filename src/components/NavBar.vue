@@ -1,6 +1,9 @@
 <template>
   <div class="navBar">
-    <router-link :to="{ name: 'home' }">Home|</router-link>
+    <router-link :to="{ name: 'home' }">Home |</router-link>
+    <router-link :to="{ name: 'deal-show', params: { id: 'Valdas' } }"
+      >Deal Show #valdas |</router-link
+    >
     <router-link :to="{ name: 'settings' }">Settings|</router-link>
     <router-link :to="{ name: 'about' }">About</router-link>
   </div>
