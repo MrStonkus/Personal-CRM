@@ -8,7 +8,7 @@
         switch
         v-model="isSortDealsAuto"
         name="isSortDealsAuto-button"
-        >Sort deals in Home page automaticaly
+        >Sort deals in Home page automaticaly - Not working, just dev. example!
         <!-- <b>(Checked: {{ isSortDealsAuto }})</b> -->
       </b-form-checkbox>
     </div>

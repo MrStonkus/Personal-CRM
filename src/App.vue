@@ -31,6 +31,10 @@ body {
   text-align: center;
   color: #2c3e50;
   height: auto;
+  background-color: #f7f7f7;
+  color: #26292c;
+  font: 400 14px/20px Open Sans, sans-serif;
+  min-width: 1000px;
 }
 
 #mainView {

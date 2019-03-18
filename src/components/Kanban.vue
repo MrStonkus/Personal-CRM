@@ -25,7 +25,15 @@
         >
           <!-- <div>id: {{ deal.id }}</div> -->
           <div>
-            <strong>{{ deal.company }}</strong>
+            <!-- //Action icon ------------------------------------------------------->
+            <span v-bind:style="{ color: actionColor }">
+              <i class="far fa-arrow-alt-circle-right"></i>
+            </span>
+
+            <!-- end Icon -->
+            <div>
+              <strong>{{ deal.company }}</strong>
+            </div>
             <div v-show="deal.contact">
               <img src="../assets/user.png" />
               {{ deal.contact }}
@@ -54,7 +62,12 @@ import { mapState } from "vuex";
 
 export default {
   name: "KanBan",
-
+  data() {
+    return {
+      //TODO: add icon method
+      actionColor: "rgb(173, 68, 68)"
+    };
+  },
   //Get data of deals from global Vuex store
   computed: {
     //Set this.$store.state.stages to stages and deals to deals
@@ -62,7 +75,7 @@ export default {
   },
 
   methods: {
-    // TODO: check this method
+    // TODO: remove this method prior public
     sortDeals: function(deals) {
       var newDeals = deals.slice();
       return newDeals.sort(function(a, b) {
@@ -95,6 +108,11 @@ export default {
     getActivityDate: function(deal) {
       const date = new Date(deal.activityDate).toLocaleString();
       return deal.isActivityDateAllDay ? date.slice(0, 10) : date.slice(0, 19);
+    },
+    getIconColor: function() {
+      return {
+        iconColor: "rgb(173, 68, 68)"
+      };
     }
   }
 };
@@ -115,5 +133,13 @@ img {
 .link-to-deal:visited {
   color: black;
   text-decoration: none;
+}
+
+.fa-arrow-alt-circle-right {
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 8px;
+  font-size: 20px;
+  // color: rgb(173, 68, 68);
 }
 </style>

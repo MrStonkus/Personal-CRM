@@ -21,7 +21,7 @@ export default new Vuex.Store({
         status: "Įvesta",
         company: "UAB Kompanija",
         contact: "Tomas Baltušis",
-        activityDate: "2016-03-17T16:00:00.957Z",
+        activityDate: "2016-03-17T13:23:00.957Z",
         isActivityDateAllDay: false,
         product: "Vyniotuvas",
         action: "Laukiu kol griš iš atostogų"
@@ -32,7 +32,7 @@ export default new Vuex.Store({
         company: "UAB Flirtas",
         contact: "Rokas",
         activityDate: "2015-03-17T16:00:00.957Z",
-        isActivityDateAllDay: false,
+        isActivityDateAllDay: true,
         product: "Stelažas",
         action: "Neapsisprendžia"
       },
@@ -41,15 +41,14 @@ export default new Vuex.Store({
         status: "Įvesta",
         company: "UAB Softas",
         contact: "Tadas Kernagis",
-        activityDate: "2019-03-17T16:00:00.957Z",
+        activityDate: "2019-03-17T17:15:00.957Z",
         isActivityDateAllDay: false,
         product: "Vyniotuvas",
         action: "Paruošti KP"
       }
     ],
-    //Default global settings
-    isSortDealsAuto: true,
-    counter: 10
+    //Default global settings - not activated, just for future example!
+    isSortDealsAuto: true
   },
   //Mutations for updating this.state
   mutations: {
@@ -61,13 +60,11 @@ export default new Vuex.Store({
         contact: "vardenis pavardenis",
         // @ts-ignore
         activityDate: new Date(),
-        isActivityDateAllDay: true
+        isActivityDateAllDay: false,
+        product: "Vyniotuvas",
+        action: "Paruošti KP"
       });
-      state.counter += 1;
     },
-    // updateisSortDealsAuto(state, val) {
-    //   state.isSortDealsAuto = val;
-    // },
     updateDealsList(state, val) {
       state.deals.find(d => d.id === val.id).status = val.status;
     }
