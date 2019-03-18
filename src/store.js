@@ -45,24 +45,24 @@ export default new Vuex.Store({
         isActivityDateAllDay: false
       },
       {
-        id: "siandien2",
+        id: "sianhgdien2",
         status: "Įvesta",
         title: "Būsimas",
         activityDate: "2019-08-17T19:30:51.957Z",
         isActivityDateAllDay: false
       },
       {
-        id: "siandisdsd",
+        id: "siaxfndisdsd",
         status: "Įvesta",
         title: "Būsimas šiandien Visą dieną",
-        activityDate: "2019-03-17T21:30:51.957Z",
+        activityDate: "2019-03-18T21:30:51.957Z",
         isActivityDateAllDay: true
       },
       {
-        id: "siandien5",
+        id: "sianrtydien5",
         status: "Įvesta",
         title: "Vėluojantis šiandien Visą dieną",
-        activityDate: "2019-03-17T10:30:51.957Z",
+        activityDate: "2019-03-18T01:30:51.957Z",
         isActivityDateAllDay: true
       }
     ],
@@ -79,7 +79,7 @@ export default new Vuex.Store({
         title: "Naujas sandoris",
         // @ts-ignore
         activityDate: new Date(),
-        isActivityDateAllDay: false
+        isActivityDateAllDay: true
       });
       state.counter += 1;
     },

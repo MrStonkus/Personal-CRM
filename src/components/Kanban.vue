@@ -23,7 +23,7 @@
           class="link-to-deal"
           :to="{ name: 'deal-show', params: { id: deal.id } }"
         >
-          <div>id: {{ deal.id }}</div>
+          <!-- <div>id: {{ deal.id }}</div> -->
           <div>
             <div>
               <img src="../assets/user.png" />
@@ -59,6 +59,7 @@ export default {
   },
 
   methods: {
+    // TODO: check this method
     sortDeals: function(deals) {
       var newDeals = deals.slice();
       return newDeals.sort(function(a, b) {
