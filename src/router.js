@@ -9,7 +9,7 @@ import DealShow from "./views/DealShow.vue";
 Vue.use(Router);
 
 export default new Router({
-  mode: "history", // Deafaul Hash # in URL is anabled, this change this mode
+  // mode: "history", // Deafaul Hash # in URL is anabled, this change this mode
   routes: [
     {
       path: "*",

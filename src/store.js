@@ -17,32 +17,32 @@ export default new Vuex.Store({
     ],
     deals: [
       {
-        id: "sdfsfsf",
+        id: "sdffgfvbngsfsf",
         status: "Įvesta",
-        company: "UAB Kompanija",
+        company: "UAB Kompanija2",
         contact: "Tomas Baltušis",
         activityDate: "2016-03-17T13:23:00.957Z",
-        isActivityDateAllDay: false,
+        allDayActivity: false,
         product: "Vyniotuvas",
         action: "Laukiu kol griš iš atostogų"
       },
       {
-        id: "sdfasdsfgfsfsf",
+        id: "sdfasdesrtetresfgfsfsf",
         status: "Įvesta",
         company: "UAB Flirtas",
         contact: "Rokas",
         activityDate: "2015-03-17T16:00:00.957Z",
-        isActivityDateAllDay: true,
+        allDayActivity: true,
         product: "Stelažas",
         action: "Neapsisprendžia"
       },
       {
-        id: "kgyjfghrfg",
+        id: "kgyjfghruouiouifg",
         status: "Įvesta",
         company: "UAB Softas",
-        contact: "Tadas Kernagis",
+        // contact: "Tadas Kernagis",
         activityDate: "2019-03-17T17:15:00.957Z",
-        isActivityDateAllDay: false,
+        allDayActivity: false,
         product: "Vyniotuvas",
         action: "Paruošti KP"
       }
@@ -60,7 +60,7 @@ export default new Vuex.Store({
         contact: "vardenis pavardenis",
         // @ts-ignore
         activityDate: new Date(),
-        isActivityDateAllDay: false,
+        allDayActivity: true,
         product: "Vyniotuvas",
         action: "Paruošti KP"
       });

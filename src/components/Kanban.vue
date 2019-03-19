@@ -38,7 +38,7 @@
               <img src="../assets/user.png" />
               {{ deal.contact }}
             </div>
-            <div>{{ getActivityDate(deal) }}</div>
+            <!-- <div>{{ getActivityDate(deal) }}</div> -->
             <div>{{ deal.product }}</div>
             <div>{{ deal.action }}</div>
           </div>
@@ -105,10 +105,10 @@ export default {
     },
 
     //Get date and time of current deal in local time format YYYY-MM-DD HH:MM
-    getActivityDate: function(deal) {
-      const date = new Date(deal.activityDate).toLocaleString();
-      return deal.isActivityDateAllDay ? date.slice(0, 10) : date.slice(0, 19);
-    },
+    // getActivityDate: function(deal) {
+    //   const date = new Date(deal.activityDate).toLocaleString();
+    //   return deal.isActivityDateAllDay ? date.slice(0, 10) : date.slice(0, 19);
+    // },
     getIconColor: function() {
       return {
         iconColor: "rgb(173, 68, 68)"
