@@ -18,15 +18,15 @@
       </div>
 
       <!-- List deals items in current stage-->
-      <div v-for="deal in sortDeals(deals)" :slot="deal.id" :key="deal.id">
+      <div v-for="deal in deals" :slot="deal.id" :key="deal.id">
         <router-link
           class="link-to-deal"
           :to="{ name: 'deal-show', params: { id: deal.id } }"
         >
           <!-- <div>id: {{ deal.id }}</div> -->
           <div>
-            <!-- //Action icon ------------------------------------------------------->
-            <span v-bind:style="{ color: actionColor }">
+            <!-- Action icon ------------------------------------------------------->
+            <span v-bind:style="{ color: getActionColor(deal) }">
               <i class="far fa-arrow-alt-circle-right"></i>
             </span>
 
@@ -59,13 +59,15 @@
 <script>
 //Get all vuex store states in one mapState array
 import { mapState } from "vuex";
+//Get moment component for time and date calculations
+var moment = require("moment");
+moment().format("YYYY-MM-DD, h:mm:ss");
 
 export default {
   name: "KanBan",
   data() {
     return {
-      //TODO: add icon method
-      actionColor: "rgb(173, 68, 68)"
+      // getActionColor: "rgb(173, 68, 68)"
     };
   },
   //Get data of deals from global Vuex store
@@ -107,13 +109,46 @@ export default {
     //Get date and time of current deal in local time format YYYY-MM-DD HH:MM
     getActivityDate: function(deal) {
       const date = new Date(deal.activityDate).toLocaleString();
-      return deal.allDayActivity ? date.slice(0, 10) : date.slice(0, 19);
+      return deal.exactTime ? date.slice(0, 19) : date.slice(0, 10);
     },
 
-    getIconColor: function() {
-      return {
-        iconColor: "rgb(173, 68, 68)"
-      };
+    //TODO: add icon method
+    getActionColor: function(deal) {
+      var now = moment();
+      const startToday = moment().startOf("day");
+      const endToday = moment().endOf("day");
+      const dealTime = moment(deal.activityDate);
+      let color = "rgb(0, 0, 0)";
+
+      // Red if deal overdue
+      if (
+        (dealTime < now && deal.exactTime === true) ||
+        dealTime < startToday
+      ) {
+        color = "rgb(255, 0, 0)";
+        //Green if deal is not overdue and today
+      } else if (
+        (startToday < dealTime &&
+          dealTime < endToday &&
+          deal.exactTime === false) ||
+        (now < dealTime && deal.exactTime === true && dealTime < endToday)
+      ) {
+        color = "rgb(0, 255, 0)";
+        //Yellow if deal time do not defined
+      } else if (!dealTime.isValid()) {
+        color = "rgb(255, 255, 0)";
+        //Grey if deal in the future from today
+      } else {
+        color = "rgb(136, 136, 136)";
+      }
+
+      console.log("Now: " + now.toString());
+      console.log("startToday: " + startToday.toString());
+      console.log("endToday: " + endToday.toString());
+      console.log("dealTime: " + dealTime.toString());
+      let dabar = moment();
+      console.log("Dabar :" + dabar.toLocaleString());
+      return color;
     }
   }
 };
@@ -122,6 +157,7 @@ export default {
 <style lang="scss">
 @import "../assets/kanban.scss";
 #kanban {
+  color: rgb(27, 27, 27);
   height: auto;
 }
 

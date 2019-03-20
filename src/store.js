@@ -22,7 +22,7 @@ export default new Vuex.Store({
         company: "UAB Praeityje tikslus",
         contact: "Tomas Baltušis",
         activityDate: "2016-03-17T13:23:00.957Z",
-        allDayActivity: false,
+        exactTime: true,
         product: "Vyniotuvas",
         action: "Laukiu kol griš iš atostogų"
       },
@@ -33,7 +33,7 @@ export default new Vuex.Store({
         company: "Aktyvumas nenustatytas",
         contact: "Rokas",
         activityDate: "",
-        allDayActivity: false,
+        exactTime: true,
         product: "Stelažas",
         action: "Neapsisprendžia"
       },
@@ -42,8 +42,8 @@ export default new Vuex.Store({
         status: "Įvesta",
         company: "Šiandien visa diena",
         // contact: "Tadas Kernagis",
-        activityDate: "2019-03-19T17:15:00.957Z",
-        allDayActivity: true,
+        activityDate: "2019-03-20T17:15:00.957Z",
+        exactTime: false,
         product: "Vyniotuvas",
         action: "Paruošti KP"
       },
@@ -53,8 +53,8 @@ export default new Vuex.Store({
         status: "Įvesta",
         company: "Šiandien tikslus ateityje",
         contact: "Tadas Kernagis",
-        activityDate: "2019-03-19T21:15:00.957Z",
-        allDayActivity: false,
+        activityDate: "2019-03-20T21:15:00.957Z",
+        exactTime: true,
         product: "Vyniotuvas",
         action: "Paruošti KP"
       },
@@ -64,7 +64,7 @@ export default new Vuex.Store({
         company: "Ateityje tikslus",
         contact: "Tadas Kernagis",
         activityDate: "2020-03-19T21:15:00.957Z",
-        allDayActivity: false,
+        exactTime: true,
         product: "Vyniotuvas",
         action: "Paruošti KP"
       },
@@ -74,7 +74,7 @@ export default new Vuex.Store({
         company: "Ateityje visa diena",
         contact: "Tadas Kernagis",
         activityDate: "2021-03-19T21:15:00.957Z",
-        allDayActivity: true,
+        exactTime: false,
         product: "Vyniotuvas",
         action: "Paruošti KP"
       },
@@ -84,8 +84,8 @@ export default new Vuex.Store({
         status: "Įvesta",
         company: "Šiandien tikslus pavėluotas",
         contact: "Tadas Kernagis",
-        activityDate: "2019-03-19T10:15:00.957Z",
-        allDayActivity: false,
+        activityDate: "2019-03-20T08:15:00.957Z",
+        exactTime: true,
         product: "Vyniotuvas",
         action: "Paruošti KP"
       },
@@ -96,7 +96,7 @@ export default new Vuex.Store({
         company: "Praeityje visa diena",
         contact: "Tomas Baltušis",
         activityDate: "2017-03-17T13:23:00.957Z",
-        allDayActivity: true,
+        exactTime: false,
         product: "Vyniotuvas",
         action: "Laukiu kol griš iš atostogų"
       }
@@ -114,7 +114,7 @@ export default new Vuex.Store({
         contact: "vardenis pavardenis",
         // @ts-ignore
         activityDate: new Date(),
-        allDayActivity: true,
+        exactTime: true,
         product: "Vyniotuvas",
         action: "Paruošti KP"
       });
