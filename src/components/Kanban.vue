@@ -26,8 +26,16 @@
           <!-- <div>id: {{ deal.id }}</div> -->
           <div>
             <!-- Action icon ------------------------------------------------------->
-            <span v-bind:style="{ color: getActionColor(deal) }">
-              <i class="far fa-arrow-alt-circle-right"></i>
+            <span v-bind:style="{ color: getActionColor(deal, stages) }">
+              <i v-if="deal.activityDate" class="fas fa-sign-out-alt"></i>
+              <i
+                v-else-if="!deal.activityDate && deal.status === stages[0]"
+                class="fas fa-parking"
+              ></i>
+              <i
+                v-else-if="!deal.activityDate && deal.status !== stages[0]"
+                class="fas fa-exclamation-triangle"
+              ></i>
             </span>
 
             <!-- end Icon -->
@@ -38,7 +46,7 @@
               <img src="../assets/user.png" />
               {{ deal.contact }}
             </div>
-            <div>{{ getActivityDate(deal) }}</div>
+            <div v-show="deal.getActivityDate">{{ getActivityDate(deal) }}</div>
             <div>{{ deal.product }}</div>
             <div>{{ deal.action }}</div>
           </div>
@@ -59,6 +67,7 @@
 <script>
 //Get all vuex store states in one mapState array
 import { mapState } from "vuex";
+
 //Get moment component for time and date calculations
 var moment = require("moment");
 moment().format("YYYY-MM-DD, h:mm:ss");
@@ -66,10 +75,9 @@ moment().format("YYYY-MM-DD, h:mm:ss");
 export default {
   name: "KanBan",
   data() {
-    return {
-      // getActionColor: "rgb(173, 68, 68)"
-    };
+    return {};
   },
+
   //Get data of deals from global Vuex store
   computed: {
     //Set this.$store.state.stages to stages and deals to deals
@@ -101,6 +109,7 @@ export default {
       return dealText;
     },
 
+    //Update deal after move to store
     updateDeal(id, status) {
       const updatedDeal = { id: id, status: status };
       this.$store.commit("updateDealsList", updatedDeal);
@@ -112,12 +121,13 @@ export default {
       return deal.exactTime ? date.slice(0, 19) : date.slice(0, 10);
     },
 
-    //TODO: add icon method
-    getActionColor: function(deal) {
+    //Geting action icon color by deal stage
+    getActionColor: function(deal, stages) {
       var now = moment();
       const startToday = moment().startOf("day");
       const endToday = moment().endOf("day");
       const dealTime = moment(deal.activityDate);
+      const isDealTimeValid = dealTime.isValid();
       let color = "rgb(0, 0, 0)";
 
       // Red if deal overdue
@@ -126,6 +136,7 @@ export default {
         dealTime < startToday
       ) {
         color = "rgb(255, 0, 0)";
+
         //Green if deal is not overdue and today
       } else if (
         (startToday < dealTime &&
@@ -134,20 +145,19 @@ export default {
         (now < dealTime && deal.exactTime === true && dealTime < endToday)
       ) {
         color = "rgb(0, 255, 0)";
+
+        //Blue if deal wihout date and in first stage
+      } else if (!isDealTimeValid && deal.status === stages[0]) {
+        color = "rgb(38, 22, 126)";
+
         //Yellow if deal time do not defined
-      } else if (!dealTime.isValid()) {
-        color = "rgb(255, 255, 0)";
+      } else if (!isDealTimeValid && deal.status !== stages[0]) {
+        color = "rgb(219, 143, 0)";
+
         //Grey if deal in the future from today
       } else {
         color = "rgb(136, 136, 136)";
       }
-
-      console.log("Now: " + now.toString());
-      console.log("startToday: " + startToday.toString());
-      console.log("endToday: " + endToday.toString());
-      console.log("dealTime: " + dealTime.toString());
-      let dabar = moment();
-      console.log("Dabar :" + dabar.toLocaleString());
       return color;
     }
   }
@@ -157,7 +167,7 @@ export default {
 <style lang="scss">
 @import "../assets/kanban.scss";
 #kanban {
-  color: rgb(27, 27, 27);
+  color: rgb(0, 0, 0);
   height: auto;
 }
 
@@ -168,15 +178,25 @@ img {
 
 .link-to-deal:link,
 .link-to-deal:visited {
-  color: black;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
-.fa-arrow-alt-circle-right {
+.fa-sign-out-alt,
+.fa-parking,
+.fa-exclamation-triangle {
   position: absolute;
   top: calc(50% - 8px);
   right: 8px;
-  font-size: 20px;
-  // color: rgb(173, 68, 68);
+  font-size: 18px;
+}
+
+.fa-sign-out-alt:hover,
+.fa-parking:hover,
+.fa-exclamation-triangle:hover {
+  position: absolute;
+  top: calc(50% - 10px);
+  right: 6px;
+  font-size: 22px;
 }
 </style>
