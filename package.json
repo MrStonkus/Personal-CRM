@@ -8,9 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@pokeristas/vue-kanban": "^1.4.5",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.15",
+    "dragula": "^3.7.2",
     "moment": "^2.24.0",
     "vue": "^2.6.9",
     "vue-router": "^3.0.1",

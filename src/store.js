@@ -42,7 +42,7 @@ export default new Vuex.Store({
         status: "Įvesta",
         company: "Šiandien visa diena",
         // contact: "Tadas Kernagis",
-        activityDate: "2019-03-20T21:15:00.957Z",
+        activityDate: "2019-03-21T21:15:00.957Z",
         exactTime: false,
         product: "Vyniotuvas",
         action: "Paruošti KP"
@@ -53,7 +53,7 @@ export default new Vuex.Store({
         status: "Įvesta",
         company: "Šiandien tikslus ateityje",
         contact: "Tadas Kernagis",
-        activityDate: "2019-03-20T21:10:00.957Z",
+        activityDate: "2019-03-21T21:10:00.957Z",
         exactTime: true,
         product: "Vyniotuvas",
         action: "Paruošti KP"
@@ -84,7 +84,7 @@ export default new Vuex.Store({
         status: "Įvesta",
         company: "Šiandien tikslus pavėluotas",
         contact: "Tadas Kernagis",
-        activityDate: "2019-03-20T08:15:00.957Z",
+        activityDate: "2019-03-21T08:15:00.957Z",
         exactTime: true,
         product: "Vyniotuvas",
         action: "Paruošti KP"

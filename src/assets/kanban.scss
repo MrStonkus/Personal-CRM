@@ -105,7 +105,7 @@ ul.drag-inner-list {
   text-align: left;
 
   &.is-moving {
-    // transform: scale(1);
+    // transform: scale(2);
     // background: rgba(rgb(159, 238, 166), 1);
   }
 }
@@ -175,4 +175,17 @@ ul.drag-inner-list {
 .gu-transit {
   opacity: 0.5;
   background: rgb(253, 204, 204);
+}
+
+#dealFooterActionsBar {
+  // opacity: 0;
+  // position: fixed;
+  // left: 0;
+  // right: 0;
+  // bottom: -67px;
+  // height: 67px;
+  // background-color: #f7f7f7;
+  // z-index: 100;
+  // box-shadow: 0 5px 40px rgba(0, 0, 0, 0.4);
+  // transition: opacity 0.3s ease-out, bottom 0.1s ease-out 1s;
 }

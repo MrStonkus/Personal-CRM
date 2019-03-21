@@ -6,13 +6,10 @@ import store from "./store"; // load vuex component for using global variables i
 import BootstrapVue from "bootstrap-vue"; // load buitifull UI tools
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-// import vueKanban from "vue_kanban_sort";
-import vueKanban from "@pokeristas/vue-kanban";
-import UUID from "vue-uuid";
+import UUID from "vue-uuid"; // component for generating unique ID
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
-Vue.use(vueKanban);
 Vue.use(UUID);
 
 //Create, render and mount main App.vue file
