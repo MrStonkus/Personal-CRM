@@ -85,7 +85,6 @@ export default {
   },
 
   methods: {
-    // TODO: remove this method prior public
     sortDeals: function(deals) {
       var newDeals = deals.slice();
       return newDeals.sort(function(a, b) {
