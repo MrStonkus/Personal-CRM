@@ -19,7 +19,7 @@ export default new Vuex.Store({
       {
         id: "sdffgfvbngsfsf",
         status: "Įvesta",
-        company: "UAB Praeityje tikslus",
+        company: "UAB Praeityje tikslus6",
         contact: "Tomas Baltušis",
         activityDate: "2016-03-17T13:23:00.957Z",
         exactTime: true,
