@@ -1,71 +1,111 @@
 <template>
-  <div class="drag-container">
-    <ul class="drag-list">
-      <li
-        v-for="stage in stages"
-        class="drag-column"
-        :class="{ ['drag-column-' + stage]: true }"
-        :key="stage"
-      >
-        <span class="stages-header">
-          <slot :name="stage">
-            <h2>{{ stage }}</h2>
-          </slot>
-        </span>
-        <!-- Show number of deals in Kanban stage header -->
-        <div class="stage-value">{{ getDealsCountString(stage) }}</div>
+  <div>
+    <div class="drag-container">
+      pagrindinis Kanban
+      <ul class="drag-list">
+        <li class="drag-column">
+          <span class="stages-header">
+            <h2>Pirmas</h2>
+          </span>
+          <!-- --------------------------------------------Deals Column ------------- -->
+          <ul class="drag-inner-list">
+            <!-- ------------------------------------------Deal------------------------->
+            <li class="drag-item">Dealas</li>
+            <!-- ------------------------------------------END DEAL ----------------- -->
+          </ul>
+        </li>
+        <li class="drag-column">
+          <span class="stages-header">
+            <h2>Antras</h2>
+          </span>
+          <ul class="drag-inner-list">
+            <li class="drag-item">Dealas</li>
+          </ul>
+        </li>
+      </ul>
+      <!-- ----------------------------------------FOOTER ----------------------------- -->
+      <div class="footer-container">
+        <div class="footer-item">Delete</div>
+        <div class="footer-item2">Lost</div>
+        <div class="footer-item3">Won</div>
+      </div>
+      <!-- ---------------------------------------END FOOTER ---------------------------------- -->
+    </div>
 
-        <div class="drag-options"></div>
+    <div class="drag-container">
+      <ul class="drag-list">
+        <li
+          v-for="stage in stages"
+          class="drag-column"
+          :class="{ ['drag-column-' + stage]: true }"
+          :key="stage"
+        >
+          <span class="stages-header">
+            <slot :name="stage">
+              <h2>{{ stage }}</h2>
+            </slot>
+          </span>
+          <!-- Show number of deals in Kanban stage header -->
+          <div class="stage-value">{{ getDealsCountString(stage) }}</div>
 
-        <!-- List deals items in current stage-->
-        <ul class="drag-inner-list" ref="list" :data-status="stage">
-          <li
-            class="drag-item"
-            v-for="deal in getDeals(stage)"
-            :data-deal-id="deal.id"
-            :key="deal.id"
-          >
-            <!-- Reuterio pradžia -->
-            <router-link
-              class="link-to-deal"
-              :to="{ name: 'deal-show', params: { id: deal.id } }"
+          <div class="drag-options"></div>
+
+          <!-- List deals items in current stage-->
+          <ul class="drag-inner-list" ref="list" :data-status="stage">
+            <li
+              class="drag-item"
+              v-for="deal in getDeals(stage)"
+              :data-deal-id="deal.id"
+              :key="deal.id"
             >
-              <div>
-                <!-- Action icon ------------------------------------------------------->
-                <span v-bind:style="{ color: getActionColor(deal, stages) }">
-                  <i v-if="deal.activityDate" class="fas fa-sign-out-alt"></i>
-                  <i
-                    v-else-if="!deal.activityDate && deal.status === stages[0]"
-                    class="fas fa-parking"
-                  ></i>
-                  <i
-                    v-else-if="!deal.activityDate && deal.status !== stages[0]"
-                    class="fas fa-exclamation-triangle"
-                  ></i>
-                </span>
-
-                <!-- end Icon -->
+              <!-- Reuterio pradžia -->
+              <router-link
+                class="link-to-deal"
+                :to="{ name: 'deal-show', params: { id: deal.id } }"
+              >
                 <div>
-                  <strong>{{ deal.company }}</strong>
+                  <!-- Action icon ------------------------------------------------------->
+                  <span v-bind:style="{ color: getActionColor(deal, stages) }">
+                    <i v-if="deal.activityDate" class="fas fa-sign-out-alt"></i>
+                    <i
+                      v-else-if="
+                        !deal.activityDate && deal.status === stages[0]
+                      "
+                      class="fas fa-parking"
+                    ></i>
+                    <i
+                      v-else-if="
+                        !deal.activityDate && deal.status !== stages[0]
+                      "
+                      class="fas fa-exclamation-triangle"
+                    ></i>
+                  </span>
+
+                  <!-- end Icon -->
+                  <div>
+                    <strong>{{ deal.company }}</strong>
+                  </div>
+                  <div v-show="deal.contact">
+                    <img src="../assets/user.png" />
+                    {{ deal.contact }}
+                  </div>
+                  <div v-if="deal.activityDate">
+                    {{ getActivityDate(deal) }}
+                  </div>
+                  <div>{{ deal.product }}</div>
+                  <div>{{ deal.action }}</div>
                 </div>
-                <div v-show="deal.contact">
-                  <img src="../assets/user.png" />
-                  {{ deal.contact }}
-                </div>
-                <div v-if="deal.activityDate">{{ getActivityDate(deal) }}</div>
-                <div>{{ deal.product }}</div>
-                <div>{{ deal.action }}</div>
-              </div>
-            </router-link>
-          </li>
-        </ul>
-        <div class="drag-column-footer">
-          <slot :name="`footer-${stage}`"></slot>
-        </div>
-      </li>
-    </ul>
-    <div id="dealFooterActionsBar" style="background-color:lightblue">
-      <button type="button" class="btn btn-danger">Delete</button>
+              </router-link>
+            </li>
+          </ul>
+          <div class="drag-column-footer">
+            <slot :name="`footer-${stage}`"></slot>
+          </div>
+        </li>
+      </ul>
+      <div id="dealFooterActionsBar" style="background-color:lightblue">
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
     </div>
   </div>
 </template>
@@ -286,6 +326,16 @@ ul.drag-inner-list {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
 }
+
+.drag-footer-inner-list {
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  // height: 50vh; //Footer height
+  //Scroll only one list
+  // overflow-y: scroll;
+  // scrollbar-width: none; /* Firefox */
+  // -ms-overflow-style: none; /* IE 10+ */
+}
 // hide scroll bar
 .drag-inner-list::-webkit-scrollbar {
   /* WebKit */
@@ -313,6 +363,31 @@ ul.drag-inner-list {
     // background: rgba(rgb(159, 238, 166), 1);
   }
 }
+
+.footer-container {
+  position: static;
+  // position: absolute;
+  min-width: 100%;
+}
+
+.footer-item {
+  // margin: -1px;
+  background: white;
+  // -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  // transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  color: #212529;
+  // border-radius: 0.35rem;
+  // position: relative;
+  display: block;
+  // padding: 1rem 0.75rem;
+  // background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  // cursor: pointer;
+  min-height: 50px;
+  text-align: center;
+  float: left;
+}
+
 .drag-item:active {
   // transform: scale(0.75);
 }

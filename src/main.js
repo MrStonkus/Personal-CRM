@@ -7,10 +7,12 @@ import BootstrapVue from "bootstrap-vue"; // load buitifull UI tools
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import UUID from "vue-uuid"; // component for generating unique ID
+import VueSplit from "vue-split-panel";
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(UUID);
+Vue.use(VueSplit);
 
 //Create, render and mount main App.vue file
 new Vue({

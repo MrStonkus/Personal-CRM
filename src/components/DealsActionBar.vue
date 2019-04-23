@@ -1,6 +1,6 @@
 <template>
   <div class="dealsActionBar">
-    <b-button @click="addDeal" variant="success">Add deal</b-button>
+    <b-button @click="addDeal" variant="success btn-sm">Add deal</b-button>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
 <style scoped>
 .dealsActionBar {
   background: #f7f7f7;
-  padding: 10px 16px 10px 14px;
+  padding: 9px 16px 10px 14px;
   display: flex;
   justify-content: space-between;
 }
