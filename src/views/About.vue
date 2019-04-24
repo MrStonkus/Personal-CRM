@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Split direction="vertical">
+    <Split style="height: calc(100vh - 48px - 20px)" direction="vertical">
       <SplitArea :size="70">
         <div class="kanban-board">Kanban</div>
       </SplitArea>
@@ -25,10 +25,10 @@
 
 <script></script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .split {
-  height: calc(100vh - 48px - 20px);
-  overflow: auto;
+  // height: calc(100vh - 48px - 20px);
+  // overflow: auto;
 }
 
 .kanban-board {

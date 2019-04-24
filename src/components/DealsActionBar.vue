@@ -20,5 +20,6 @@ export default {
   padding: 9px 16px 10px 14px;
   display: flex;
   justify-content: space-between;
+  height: 50px;
 }
 </style>

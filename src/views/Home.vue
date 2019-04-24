@@ -1,24 +1,22 @@
 <template>
   <div>
-    <Split direction="vertical">
+    <div>
+      <DealsActionBar />
+    </div>
+
+    <!-- Window split start -->
+    <Split style="height: calc(100vh - 48px - 70px)" direction="vertical">
+      <!-- Window first  -->
       <SplitArea :size="70">
-        <div class="kanban-board">Kanban
-          <Kanban/>
+        <div class="kanban-board">
+          <Kanban />
         </div>
       </SplitArea>
+
+      <!-- Window second -->
       <SplitArea :size="30">
         <div class="kanban-table">
-          <p>AAAAAAAAAAAAAAAAAAAAAAAA</p>
-          <p>Tekstas</p>
-          <p>Tekstas2</p>
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-          <p>Tekstas4</p>
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-          <p>dddddddddddd</p>
+          <p>Kanban table example</p>
         </div>
       </SplitArea>
     </Split>
@@ -34,27 +32,26 @@ export default {
   components: {
     DealsActionBar,
     Kanban
-    
   }
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .split {
-  height: calc(100vh - 48px - 20px);
-  overflow: auto;
+  // height: calc(100vh - 48px - 20px);
+  // overflow: auto;
 }
 
 .kanban-board {
-  background-color: red;
-  min-height: 100%;
+  // background-color: yellow;
+  // min-height: 100%;
   // overflow: hidden;
 }
 
 .kanban-table {
-  background-color: green;
-  min-height: 100%;
-  overflow: auto;
+  // background-color: green;
+  // min-height: 100%;
+  // overflow: auto;
 }
 
 ::-webkit-scrollbar {
