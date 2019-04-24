@@ -5,7 +5,6 @@
     </div>
 
     <!-- Window split start -->
-
     <Split
       style="height: calc(100vh - 48px - 70px); border: solid 1px #e5e5e5;"
       direction="vertical"
@@ -20,7 +19,7 @@
       <!-- Window second -->
       <SplitArea :size="30">
         <div class="kanban-table">
-          <p>Kanban table example</p>
+          <KanbanTable />
         </div>
       </SplitArea>
     </Split>
@@ -30,12 +29,14 @@
 <script>
 import DealsActionBar from "@/components/DealsActionBar.vue";
 import Kanban from "@/components/Kanban.vue";
+import KanbanTable from "@/components/KanbanTable.vue";
 
 export default {
   name: "home",
   components: {
     DealsActionBar,
-    Kanban
+    Kanban,
+    KanbanTable
   }
 };
 </script>
