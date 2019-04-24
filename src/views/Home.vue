@@ -2,7 +2,9 @@
   <div>
     <Split direction="vertical">
       <SplitArea :size="70">
-        <div class="kanban-board">Kanban</div>
+        <div class="kanban-board">Kanban
+          <Kanban/>
+        </div>
       </SplitArea>
       <SplitArea :size="30">
         <div class="kanban-table">
@@ -23,7 +25,19 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import DealsActionBar from "@/components/DealsActionBar.vue";
+import Kanban from "@/components/Kanban.vue";
+
+export default {
+  name: "home",
+  components: {
+    DealsActionBar,
+    Kanban
+    
+  }
+};
+</script>
 
 <style lang="scss">
 .split {
