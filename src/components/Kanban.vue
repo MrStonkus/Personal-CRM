@@ -1,38 +1,6 @@
 <template>
   <div>
     <div class="drag-container">
-      pagrindinis Kanban
-      <ul class="drag-list">
-        <li class="drag-column">
-          <span class="stages-header">
-            <h2>Pirmas</h2>
-          </span>
-          <!-- --------------------------------------------Deals Column ------------- -->
-          <ul class="drag-inner-list">
-            <!-- ------------------------------------------Deal------------------------->
-            <li class="drag-item">Dealas</li>
-            <!-- ------------------------------------------END DEAL ----------------- -->
-          </ul>
-        </li>
-        <li class="drag-column">
-          <span class="stages-header">
-            <h2>Antras</h2>
-          </span>
-          <ul class="drag-inner-list">
-            <li class="drag-item">Dealas</li>
-          </ul>
-        </li>
-      </ul>
-      <!-- ----------------------------------------FOOTER ----------------------------- -->
-      <div class="footer-container">
-        <div class="footer-item">Delete</div>
-        <div class="footer-item2">Lost</div>
-        <div class="footer-item3">Won</div>
-      </div>
-      <!-- ---------------------------------------END FOOTER ---------------------------------- -->
-    </div>
-
-    <div class="drag-container">
       <ul class="drag-list">
         <li
           v-for="stage in stages"
@@ -40,13 +8,13 @@
           :class="{ ['drag-column-' + stage]: true }"
           :key="stage"
         >
-          <span class="stages-header">
+          <div class="stages-header">
             <slot :name="stage">
               <h2>{{ stage }}</h2>
             </slot>
-          </span>
-          <!-- Show number of deals in Kanban stage header -->
-          <div class="stage-value">{{ getDealsCountString(stage) }}</div>
+            <!-- Show number of deals in Kanban stage header -->
+            <div class="stage-value">{{ getDealsCountString(stage) }}</div>
+          </div>
 
           <div class="drag-options"></div>
 
@@ -103,9 +71,12 @@
           </div>
         </li>
       </ul>
+
+      <!-- Delete Won Lost action bar -->
       <div id="dealFooterActionsBar" style="background-color:lightblue">
         <button type="button" class="btn btn-danger">Delete</button>
       </div>
+      <!-- End -->
     </div>
   </div>
 </template>
@@ -136,7 +107,7 @@ export default {
     ...mapState(["stages", "deals", "isSortDealsAuto"])
   },
 
-  // MrStonkus personal change for sorting by activityDate
+  // sorting by activityDate
   methods: {
     getDeals(status) {
       let deals = this.localDeals.filter(deal => deal.status === status);
@@ -261,6 +232,7 @@ ul.drag-inner-list {
   // max-width: 1000px;
   // margin: 20px auto;
   height: auto;
+  // border: solid 2px #e5e5e5;
 }
 
 .drag-list {
@@ -292,7 +264,7 @@ ul.drag-inner-list {
     font: 600 16px/24px Open Sans, sans-serif;
     width: 100%;
     display: inline-block;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; //shorted text
     white-space: nowrap;
     overflow: hidden;
   }
@@ -302,11 +274,12 @@ ul.drag-inner-list {
   // display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0px;
   // padding: 8px 24px 4px 12px;
   border: 1px solid #e5e5e5;
-  text-align: left;
-  height: 70px;
+  // text-align: left;
+  // height: 70px;
+  // position: relative;
 }
 .stage-value {
   font: 400 12px/16px Open Sans, sans-serif;
@@ -320,7 +293,7 @@ ul.drag-inner-list {
 .drag-inner-list {
   color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  height: 50vh; //Kanban height
+  height: 100vh; //Kanban height
   //Scroll only one list
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */

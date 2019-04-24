@@ -5,7 +5,11 @@
     </div>
 
     <!-- Window split start -->
-    <Split style="height: calc(100vh - 48px - 70px)" direction="vertical">
+
+    <Split
+      style="height: calc(100vh - 48px - 70px); border: solid 1px #e5e5e5;"
+      direction="vertical"
+    >
       <!-- Window first  -->
       <SplitArea :size="70">
         <div class="kanban-board">
