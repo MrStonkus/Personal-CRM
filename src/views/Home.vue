@@ -1,52 +1,49 @@
 <template>
-  <div id="home-container">
-    <DealsActionBar />
-    <div class="kanban-drops">Kanban</div>
-    <div class="deals-table">Deals Table</div>
+  <div>
+    <Split direction="vertical">
+      <SplitArea :size="70">
+        <div class="kanban-board">Kanban</div>
+      </SplitArea>
+      <SplitArea :size="30">
+        <div class="kanban-table">
+          <p>AAAAAAAAAAAAAAAAAAAAAAAA</p>
+          <p>Tekstas</p>
+          <p>Tekstas2</p>
+          <p>Tekstas</p>
+          <p>Tekstas</p>
+          <p>Tekstas</p>
+          <p>Tekstas4</p>
+          <p>Tekstas</p>
+          <p>Tekstas</p>
+          <p>Tekstas</p>
+          <p>dddddddddddd</p>
+        </div>
+      </SplitArea>
+    </Split>
   </div>
 </template>
 
-<script>
-// @ = ..
-import DealsActionBar from "@/components/DealsActionBar.vue";
-import Kanban from "@/components/Kanban.vue";
+<script></script>
 
-export default {
-  name: "home",
-  components: {
-    DealsActionBar,
-    Kanban
-  }
-};
-</script>
 <style lang="scss">
-#home-container {
-  display: grid;
-  // min-height: 100% !important;
-  height: 100%;
-  // min-height: calc(100vh);
-}
-.kanban-drops {
-  // calculating example (50vh - (NavBar+ActionBar+Footer)/2)
-  // min-height: calc(70vh);
-  // min-height: 100%;
-  border: 1px solid #e5e5e5;
-  margin: -1px 0px 0px 0px;
-  resize: vertical;
+.split {
+  height: calc(100vh - 48px - 20px);
   overflow: auto;
-  background-color: aqua;
-  // min-height: -o-calc(50vh - 24px); /* opera */
-  // min-height: -webkit-calc(50vh - 24px); /* google, safari */
-  // min-height: -moz-calc(50vh - 24px); /* firefox */
 }
 
-.deals-table {
-  // calculating example (50vh - (NavBar+ActionBar+Footer)/2)
-  // min-height: 50%;
-  border: 1px solid #e5e5e5;
-  margin: -1px 0px 0px 0px;
+.kanban-board {
+  background-color: red;
+  min-height: 100%;
+  // overflow: hidden;
+}
+
+.kanban-table {
   background-color: green;
-  resize: vertical;
+  min-height: 100%;
   overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }
 </style>
