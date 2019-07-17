@@ -10,7 +10,7 @@ import About from "./views/About.vue";
 Vue.use(Router);
 
 export default new Router({
-  // mode: "history", // Deafaul Hash # in URL is anabled, this change this mode
+  // mode: "history", // Default Hash # in URL is anabled, this change this mode
   routes: [
     {
       path: "*",
