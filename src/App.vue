@@ -49,5 +49,6 @@ body {
   /* calculation all height - NavBar48px - Footer20px */
   min-height: calc(100vh - 48px - 20px);
   max-height: calc(100vh - 48px - 20px);
+  /* overflow: hidden; */
 }
 </style>

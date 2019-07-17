@@ -6,7 +6,7 @@
 
     <!-- Window split start -->
     <Split
-      style="height: calc(100vh - 48px - 70px); border: solid 1px #e5e5e5;"
+      style="height: calc(100vh - 48px - 70px); border: solid 1px #e5e5e5; overflow: hidden;"
       direction="vertical"
     >
       <!-- Window first  -->
