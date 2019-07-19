@@ -13,7 +13,8 @@ export default new Vuex.Store({
       "Bendraujama",
       "Reikalingas pasiūlymas",
       "Pasiūlymas pateiktas",
-      "Užsakymas vykdomas"
+      "Užsakymas vykdomas",
+      "Laimėtas"
     ],
     deals: [
       {

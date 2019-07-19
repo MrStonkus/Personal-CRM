@@ -8,14 +8,6 @@
           :class="{ ['drag-column-' + stage]: true }"
           :key="stage"
         >
-          <div class="stages-header">
-            <slot :name="stage">
-              <h2>{{ stage }}</h2>
-            </slot>
-            <!-- Show number of deals in Kanban stage header -->
-            <div class="stage-value">{{ getDealsCountString(stage) }}</div>
-          </div>
-
           <div class="drag-options"></div>
 
           <!-- List deals items in current stage-->
@@ -107,8 +99,8 @@ export default {
     ...mapState(["stages", "deals", "isSortDealsAuto"])
   },
 
-  // sorting by activityDate
   methods: {
+    // get deals and sorting by activityDate
     getDeals(status) {
       let deals = this.localDeals.filter(deal => deal.status === status);
       return deals.sort(function(a, b) {
@@ -116,19 +108,6 @@ export default {
           Number(new Date(a.activityDate)) - Number(new Date(b.activityDate))
         );
       });
-    },
-
-    //Count deals number in current stage
-    getDealsCountString: function(stage) {
-      const deals = this.$store.state.deals;
-      const count = deals.filter(x => x.status === stage).length;
-      let dealText = "";
-      if (count === 1) {
-        dealText = count + " deal";
-      } else if (count > 1) {
-        dealText = count + " deals";
-      }
-      return dealText;
     },
 
     //Geting action icon color by deal stage
