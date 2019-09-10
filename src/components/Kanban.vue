@@ -296,6 +296,7 @@ ul.drag-inner-list {
 }
 
 .drag-item {
+  font-size: 13px;
   margin: -1px;
   background: rgba(white, 1);
   transition: $ease-out;
@@ -311,8 +312,9 @@ ul.drag-inner-list {
   text-align: left;
 
   &.is-moving {
-    // transform: scale(2);
+    // transform: scale(1.2);
     // background: rgba(rgb(159, 238, 166), 1);
+    // opacity: 1.8;
   }
 }
 
@@ -386,10 +388,10 @@ ul.drag-inner-list {
   position: fixed !important;
   margin: 0 !important;
   z-index: 9999 !important;
-  opacity: 0.8;
+  opacity: 1;
   list-style-type: none;
-  // height: 100px;
-  transform: scale(1);
+  height: 1000px;
+  // transform: scale(1);
 }
 
 .gu-hide {
