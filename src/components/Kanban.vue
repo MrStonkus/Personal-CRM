@@ -1,5 +1,26 @@
 <template>
   <div>
+    <!-- Kanban header -->
+    <div>
+      <ul class="drag-list">
+        <li
+          v-for="stage in stages"
+          class="drag-column"
+          :class="{ ['drag-column-' + stage]: true }"
+          :key="stage"
+        >
+          <div class="stages-header">
+            <slot :name="stage">
+              <h2>{{ stage }}</h2>
+            </slot>
+            <!-- Show number of deals in Kanban stage header -->
+            <div class="stage-value">{{ getDealsCountString(stage) }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- End of Kanban header -->
+
     <div class="drag-container">
       <ul class="drag-list">
         <li
@@ -63,13 +84,12 @@
           </div>
         </li>
       </ul>
-
-      <!-- Delete Won Lost action bar -->
-      <div id="dealFooterActionsBar" style="background-color:lightblue">
-        <button type="button" class="btn btn-danger">Delete</button>
-      </div>
-      <!-- End -->
     </div>
+    <!-- Delete Won Lost action bar -->
+    <div id="dealFooterActionsBar" style="background-color:lightblue">
+      <button type="button" class="btn btn-danger">Delete</button>
+    </div>
+    <!-- End -->
   </div>
 </template>
 
@@ -160,6 +180,19 @@ export default {
     updateDeal(id, status) {
       const updatedDeal = { id: id, status: status };
       this.$store.commit("updateDealsList", updatedDeal);
+    },
+
+    //Count deals number in current stage
+    getDealsCountString: function(stage) {
+      const deals = this.$store.state.deals;
+      const count = deals.filter(x => x.status === stage).length;
+      let dealText = "";
+      if (count === 1) {
+        dealText = count + " deal";
+      } else if (count > 1) {
+        dealText = count + " deals";
+      }
+      return dealText;
     }
   },
 
