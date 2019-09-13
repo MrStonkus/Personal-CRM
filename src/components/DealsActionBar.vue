@@ -1,12 +1,52 @@
 <template>
-  <div class="dealsActionBar">
-    <b-button @click="addDeal" variant="success btn-sm">Add deal</b-button>
+  <div>
+    <div class="dealsActionBar">
+      <b-button @click="addDeal" variant="success btn-sm">Add deal</b-button>
+
+      <div class="windowDisplayRadio">
+        <input
+          type="radio"
+          id="dragAndDropRadio"
+          value="dragAndDrop"
+          v-model="displayWindowAs"
+        />
+        <label for="dragAndDrop">Kanban &nbsp;</label>
+        <input
+          type="radio"
+          id="splittedRadio"
+          value="splitted"
+          v-model="displayWindowAs"
+        />
+        <label for="splitted">Splitted &nbsp;</label>
+        <input
+          type="radio"
+          id="tableRadio"
+          value="table"
+          v-model="displayWindowAs"
+        />
+        <label for="table">Table &nbsp;</label>
+        <!-- <span>Selected: {{ displayWindowAs }}</span> -->
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "dealsActionBar",
+  data() {
+    return {};
+  },
+  computed: {
+    displayWindowAs: {
+      get() {
+        return this.$store.state.displayWindowAs;
+      },
+      set(value) {
+        this.$store.commit("SET_DISPLAY", value);
+      }
+    }
+  },
   methods: {
     addDeal() {
       this.$store.commit("ADD_DEAL");
@@ -15,11 +55,13 @@ export default {
 };
 </script>
 <style scoped>
-.dealsActionBar {
+.dealsActionBar,
+.windowDisplayRadio {
   background: #f7f7f7;
   padding: 9px 16px 10px 14px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   height: 50px;
+  /* float: left; */
 }
 </style>

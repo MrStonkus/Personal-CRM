@@ -103,7 +103,10 @@ export default new Vuex.Store({
       }
     ],
     //Default global settings - not activated, just for future example!
-    isSortDealsAuto: true
+    isSortDealsAuto: true,
+
+    // Main window can be displayed as: dragAndDrop, splitted, table
+    displayWindowAs: "dragAndDrop"
   },
   //Mutations for updating this.state
   mutations: {
@@ -120,8 +123,13 @@ export default new Vuex.Store({
         action: "Paruošti KP"
       });
     },
+    // Geting 'state' from this store and 'val' value from outside and do update to this store
     updateDealsList(state, val) {
       state.deals.find(d => d.id === val.id).status = val.status;
+    },
+    // Set display value from DealsActionBar radio buttons
+    SET_DISPLAY(state, val) {
+      state.displayWindowAs = val;
     }
   },
   actions: {}
