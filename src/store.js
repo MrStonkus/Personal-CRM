@@ -106,7 +106,7 @@ export default new Vuex.Store({
     isSortDealsAuto: true,
 
     // Main window can be displayed as: dragAndDrop, splitted, table
-    displayWindowAs: "dragAndDrop"
+    displayWindowAs: "splitted"
   },
   //Mutations for updating this.state
   mutations: {

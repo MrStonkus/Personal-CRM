@@ -26,6 +26,54 @@
         />
         <label for="table">Table &nbsp;</label>
         <!-- <span>Selected: {{ displayWindowAs }}</span> -->
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label
+            class="btn btn-secondary"
+            :class="{ active: displayWindowAs === 'dragAndDrop' }"
+          >
+            <input
+              type="radio"
+              name="options"
+              id="dragAndDropRadio"
+              autocomplete="off"
+              value="dragAndDrop"
+              v-model="displayWindowAs"
+              :checked="checked"
+            />
+            Kanban
+          </label>
+          <label
+            class="btn btn-secondary"
+            :class="{ active: displayWindowAs === 'splitted' }"
+          >
+            <input
+              type="radio"
+              name="options"
+              id="splittedRadio"
+              autocomplete="off"
+              value="splitted"
+              v-model="displayWindowAs"
+              :checked="checked"
+            />
+            Splitted
+          </label>
+          <label
+            class="btn btn-secondary"
+            :class="{ active: displayWindowAs === 'table' }"
+          >
+            <input
+              type="radio"
+              name="options"
+              id="tableRadio"
+              autocomplete="off"
+              value="table"
+              v-model="displayWindowAs"
+              :checked="checked"
+            />
+            Table
+          </label>
+        </div>
       </div>
     </div>
   </div>
