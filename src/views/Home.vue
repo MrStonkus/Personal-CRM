@@ -7,9 +7,7 @@
       <!-- If condition true, Window dragAndDrop start ----------->
       <div v-if="displayWindowAs === 'dragAndDrop'">
         <div class="display-window">
-          <div class="kanban-board">
-            <Kanban />
-          </div>
+          <Kanban />
         </div>
       </div>
       <!-- Window dragAndDrop END -------------------------------->
@@ -17,9 +15,7 @@
       <!-- If condition true, Window table start ----------------->
       <div v-else-if="displayWindowAs === 'table'">
         <div class="display-window">
-          <div class="kanban-board">
-            <KanbanTable />
-          </div>
+          <KanbanTable />
         </div>
       </div>
       <!-- Window table END -------------------------------------->
@@ -29,16 +25,12 @@
         <Split class="display-window" direction="vertical">
           <!-- Window first  -->
           <SplitArea :size="70">
-            <div class="kanban-board">
-              <Kanban />
-            </div>
+            <Kanban />
           </SplitArea>
 
           <!-- Window second -->
           <SplitArea :size="30">
-            <div class="kanban-table">
-              <KanbanTable />
-            </div>
+            <KanbanTable />
           </SplitArea>
         </Split>
       </div>
