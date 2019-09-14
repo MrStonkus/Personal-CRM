@@ -4,13 +4,13 @@
       <DealsActionBar />
     </div>
     <div style="float: none">
-      <!-- If condition true, Window dragAndDrop start ----------->
-      <div v-if="displayWindowAs === 'dragAndDrop'">
+      <!-- If condition true, Window kanban start ----------->
+      <div v-if="displayWindowAs === 'kanban'">
         <div class="display-window">
           <Kanban />
         </div>
       </div>
-      <!-- Window dragAndDrop END -------------------------------->
+      <!-- Window kanban END -------------------------------->
 
       <!-- If condition true, Window table start ----------------->
       <div v-else-if="displayWindowAs === 'table'">
@@ -55,7 +55,7 @@ export default {
     KanbanTable
   },
   computed: {
-    // Main window can be displayed as: dragAndDrop, splitted, table
+    // Main window can be displayed as: kanban, splitted, table
     // Get display from store
     displayWindowAs: {
       get() {

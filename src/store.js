@@ -6,8 +6,8 @@ import { uuid } from "vue-uuid";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  //Default global data for Kanban
   state: {
-    //Default global data for Kanban
     stages: [
       "Įvesta",
       "Bendraujama",
@@ -48,7 +48,6 @@ export default new Vuex.Store({
         product: "Vyniotuvas",
         action: "Paruošti KP"
       },
-
       {
         id: "kgyjfghr8998uifg",
         status: "Įvesta",
@@ -79,7 +78,6 @@ export default new Vuex.Store({
         product: "Vyniotuvas",
         action: "Paruošti KP"
       },
-
       {
         id: "kgyjfghruouiouifg",
         status: "Įvesta",
@@ -90,7 +88,6 @@ export default new Vuex.Store({
         product: "Vyniotuvas",
         action: "Paruošti KP"
       },
-
       {
         id: "sdffgf55vbngsfsf",
         status: "Įvesta",
@@ -105,8 +102,8 @@ export default new Vuex.Store({
     //Default global settings - not activated, just for future example!
     isSortDealsAuto: true,
 
-    // Main window can be displayed as: dragAndDrop, splitted, table
-    displayWindowAs: "splitted"
+    // Main window can be displayed as: kanban, splitted, table
+    displayWindowAs: "kanban"
   },
   //Mutations for updating this.state
   mutations: {
@@ -132,5 +129,6 @@ export default new Vuex.Store({
       state.displayWindowAs = val;
     }
   },
-  actions: {}
+  actions: {},
+  getters: {}
 });

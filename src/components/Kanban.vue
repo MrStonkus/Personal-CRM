@@ -94,7 +94,6 @@
 </template>
 
 <script>
-//TODO: make template look correct
 //This component helps drag and drop items
 import dragula from "dragula";
 //Get all vuex store states in one mapState array
