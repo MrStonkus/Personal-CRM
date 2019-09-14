@@ -44,7 +44,7 @@ body {
 }
 
 #viewsOfNavbar {
-  border: solid 1px red;
+  /* border: solid 1px red; */
   /* margin: -1px 0px 1px 0px; */
   /* calculation all height - NavBar48px - Footer20px */
   min-height: calc(100vh - 48px - 20px);
