@@ -107,16 +107,17 @@ export default new Vuex.Store({
   },
   //Mutations for updating this.state
   mutations: {
-    ADD_DEAL(state) {
+    ADD_DEAL(state, deal) {
       state.deals.push({
         id: uuid.v4(),
         status: state.stages[0],
-        company: "UAB Nauja",
-        contact: "vardenis pavardenis",
+        productGroup: deal.productGroup,
+        company: deal.organizationName,
+        contact: deal.contactPersonName,
+
         // @ts-ignore
         activityDate: new Date(),
         exactTime: true,
-        product: "Vyniotuvas",
         action: "Paruošti KP"
       });
     },

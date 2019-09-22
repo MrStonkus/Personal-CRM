@@ -1,49 +1,16 @@
 <template>
   <div>
-    <Split style="height: calc(100vh - 48px - 20px)" direction="vertical">
-      <SplitArea :size="70">
-        <div class="kanban-board">Kanban</div>
-      </SplitArea>
-      <SplitArea :size="30">
-        <div class="kanban-table">
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-          <p>Tekstas2</p>
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-          <p>Tekstas4</p>
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-          <p>Tekstas</p>
-        </div>
-      </SplitArea>
-    </Split>
+    <AddDealForm />
   </div>
 </template>
 
-<script></script>
+<script>
+import AddDealForm from "@/components/AddDealForm";
+export default {
+  components: {
+    AddDealForm
+  }
+};
+</script>
 
-<style scoped lang="scss">
-.split {
-  // height: calc(100vh - 48px - 20px);
-  // overflow: auto;
-}
-
-.kanban-board {
-  background-color: red;
-  min-height: 100%;
-  // overflow: hidden;
-}
-
-.kanban-table {
-  background-color: green;
-  min-height: 100%;
-  overflow: auto;
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-}
-</style>
+<style scoped lang="scss"></style>

@@ -11,7 +11,6 @@
         autocomplete="off"
         value="kanban"
         v-model="displayWindowAs"
-        :checked="checked"
       />
       Kanban
     </label>
@@ -26,7 +25,6 @@
         autocomplete="off"
         value="splitted"
         v-model="displayWindowAs"
-        :checked="checked"
       />
       Splitted
     </label>
@@ -41,7 +39,6 @@
         autocomplete="off"
         value="table"
         v-model="displayWindowAs"
-        :checked="checked"
       />
       Table
     </label>
