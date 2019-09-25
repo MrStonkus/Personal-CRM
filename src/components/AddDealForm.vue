@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import VueGridLayout from "vue-grid-layout";
+// import VueGridLayout from "vue-grid-layout";
 
 export default {
   name: "AddDealForm",
