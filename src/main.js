@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import UUID from "vue-uuid"; // component for generating unique ID
 import VueSplit from "vue-split-panel";
+import vuetify from "./plugins/vuetify";
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
@@ -18,5 +19,6 @@ Vue.use(VueSplit);
 new Vue({
   router,
   store,
+  vuetify,
   render: h => h(App)
 }).$mount("#app");
