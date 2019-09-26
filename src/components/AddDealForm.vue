@@ -23,8 +23,8 @@
         <!-- End of form fields -->
         <button type="button" class="btn btn-warning">Cancel</button>
         <button type="submit" class="btn btn-success">Save</button>
-        <div class="text-center">
-          <v-btn>Button</v-btn>
+        <div class="my-2">
+          <v-btn small color="error">Error</v-btn>
         </div>
       </div>
     </div>
