@@ -1,34 +1,62 @@
 <template>
-  <div class="container">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Add deal</h5>
+  <v-container>
+    <v-card max-width="344" class="mx-auto">
+      <v-card-title>Add new deal</v-card-title>
+      <v-card-text>
+        <v-text-field
+          id="dealName"
+          label="Deal name"
+          prepend-icon="fas fa-briefcase"
+          clearable="clearable"
+          required
+          autofocus
+        ></v-text-field>
+        <v-text-field
+          id="organizationName"
+          label="Organization name"
+          prepend-icon="fas fa-building"
+          clearable="clearable"
+          required
+        ></v-text-field>
+        <v-text-field
+          id="contactName"
+          label="Contact name"
+          prepend-icon="fas fa-address-card"
+          clearable="clearable"
+          required
+        ></v-text-field>
+        <v-text-field
+          id="contactPhone"
+          label="Phone"
+          prepend-icon="fas fa-phone"
+          clearable="clearable"
+        ></v-text-field>
+        <v-text-field
+          id="contactEmail"
+          label="Email"
+          prepend-icon="fas fa-envelope"
+          clearable="clearable"
+        ></v-text-field>
 
-        <!-- Start of form fields -->
-
-        <form>
-          <div class="form-group">
-            <label for="organizationNameInput" style="float:left"
-              >Organization name</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="organizationNameInput"
-              placeholder="Enter organization name"
-            />
-          </div>
-        </form>
-
-        <!-- End of form fields -->
-        <button type="button" class="btn btn-warning">Cancel</button>
-        <button type="submit" class="btn btn-success">Save</button>
-        <div class="my-2">
-          <v-btn small color="error">Error</v-btn>
-        </div>
-      </div>
-    </div>
-  </div>
+        <v-list>
+          <!--  -->
+          <!--  -->
+          <v-list-item v-for="deal in deals" :key="deal.id">
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ deal.name }}
+                {{ deal.contact.name }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+        <v-card-actions>
+          <v-btn depressed class="success">Save</v-btn>
+          <v-btn depressed class="warning">Cancel</v-btn>
+        </v-card-actions>
+      </v-card-text>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -36,24 +64,32 @@
 
 export default {
   name: "AddDealForm",
-  components: {
-    // GridLayout: VueGridLayout.GridLayout,
-    // GridItem: VueGridLayout.GridItem,
-  },
   data() {
     return {
-      layout: [
-        { x: 0, y: 0, w: 4, h: 3, i: "0" },
-        { x: 3, y: 0, w: 4, h: 3, i: "1" }
-        // { x: 4, y: 0, w: 2, h: 5, i: "2" },
-        // { x: 6, y: 0, w: 2, h: 3, i: "3" },
-        // { x: 8, y: 0, w: 2, h: 3, i: "4" },
-        // { x: 10, y: 0, w: 2, h: 3, i: "5" },
-        // { x: 0, y: 5, w: 2, h: 5, i: "6" }
+      deals: [
+        {
+          id: 1,
+          name: "Vyniotuvo pardavimas",
+          contact: {
+            name: "Jonas Jonaitis",
+            phone: "8-123-12345",
+            email: "jonas@gmail.com"
+          },
+          organizationName: "Kompanija UAB"
+        },
+        {
+          id: 2,
+          name: "Reikia stelažų",
+          contact: {
+            name: "Petras Petraitis",
+            phone: "8-235-12345",
+            email: "petras@gmail.com"
+          },
+          organizationName: "Kirvis UAB"
+        }
       ]
     };
   },
-  mounted() {},
 
   methods: {}
 
@@ -72,23 +108,4 @@ export default {
   // }
 };
 </script>
-<style scoped lang="scss">
-.card {
-  margin: 0 auto;
-}
-.btn-warning,
-.btn-success {
-  float: right;
-  margin-left: 10px;
-}
-// .card-footer {
-//   font-size: 19px;
-//   text-align: right;
-// }
-// .fa-times-circle {
-//   color: #d86969;
-// }
-// .fa-check-circle {
-//   color: green;
-// }
-</style>
+<style scoped lang="scss"></style>
