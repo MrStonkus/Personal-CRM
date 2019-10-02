@@ -91,7 +91,9 @@ export default {
     };
   },
 
-  methods: {}
+  methods: {
+    addDeal() {}
+  }
 
   // addDeal() {
   //   if (

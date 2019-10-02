@@ -1,8 +1,9 @@
 <template>
   <div>
     <!-- Kanban header -->
+
     <div>
-      <ul class="drag-list">
+      <ul class="drag-list" style="padding-left: 0px">
         <li
           v-for="stage in stages"
           class="drag-column"
@@ -22,7 +23,7 @@
     <!-- End of Kanban header -->
 
     <div class="drag-container">
-      <ul class="drag-list">
+      <ul class="drag-list" style="padding-left: 0px">
         <li
           v-for="stage in stages"
           class="drag-column"
@@ -32,7 +33,12 @@
           <div class="drag-options"></div>
 
           <!-- List deals items in current stage-->
-          <ul class="drag-inner-list" ref="list" :data-status="stage">
+          <ul
+            class="drag-inner-list"
+            style="padding-left: 0px"
+            ref="list"
+            :data-status="stage"
+          >
             <li
               class="drag-item"
               v-for="deal in getDeals(stage)"
@@ -230,7 +236,8 @@ $ease-out: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 ul.drag-list {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+
+  // padding-left: 0px;
 }
 
 ul.drag-inner-list {
@@ -286,7 +293,6 @@ ul.drag-inner-list {
   align-items: center;
   justify-content: space-between;
   padding: 0px;
-  // padding: 8px 24px 4px 12px;
   border: 1px solid #e5e5e5;
   // text-align: left;
   // height: 70px;
@@ -487,5 +493,8 @@ img {
   top: calc(50% - 10px);
   right: 6px;
   font-size: 22px;
+}
+.v-aplication ul {
+  padding-left: 50px;
 }
 </style>
